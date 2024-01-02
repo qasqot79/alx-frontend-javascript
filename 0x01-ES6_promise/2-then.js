@@ -1,5 +1,3 @@
-// 2-then.js
-
 function handleResponseFromAPI(promise) {
   return promise
     .then((response) => {
