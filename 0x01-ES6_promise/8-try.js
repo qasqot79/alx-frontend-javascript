@@ -1,5 +1,3 @@
-// 8-try.js
-
 export default function divideFunction(numerator, denominator) {
   try {
     if (denominator === 0) {
