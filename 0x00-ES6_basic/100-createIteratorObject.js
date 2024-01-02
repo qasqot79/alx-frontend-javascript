@@ -1,15 +1,33 @@
-import createIteratorObject from "./100-createIteratorObject.js";
-import createEmployeesObject from './11-createEmployeesObject.js';
-import createReportObject from './12-createReportObject.js';
+export default function createIteratorObject(report) {
+  const iterator = {
+    departments: Object.keys(report),
+    currentDepartmentIndex: 0,
+    currentEmployeeIndex: 0,
 
-const employees = {
-  ...createEmployeesObject('engineering', ['Bob', 'Jane']),
-  ...createEmployeesObject('marketing', ['Sylvie'])
-};
+    next() {
+      if (this.currentDepartmentIndex < this.departments.length) {
+        const currentDepartment = this.departments[this.currentDepartmentIndex];
+        const currentEmployee = report[currentDepartment][this.currentEmployeeIndex];
 
-const report = createReportObject(employees);
-const reportWithIterator = createIteratorObject(report);
+        this.currentEmployeeIndex++;
 
-for (const item of reportWithIterator) {
-  console.log(item);
+        if (this.currentEmployeeIndex >= report[currentDepartment].length) {
+          this.currentEmployeeIndex = 0;
+          this.currentDepartmentIndex++;
+        }
+
+        return { value: currentEmployee, done: false };
+      }
+
+      return { done: true };
+    },
+  };
+
+  return {
+    [Symbol.iterator]() {
+      return {
+        next: iterator.next.bind(iterator),
+      };
+    },
+  };
 }
