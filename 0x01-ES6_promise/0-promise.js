@@ -1,5 +1,3 @@
-// 0-promise.js
-
 function getResponseFromAPI() {
   return new Promise((resolve, reject) => {
     // Your asynchronous API call or any other async operation goes here
