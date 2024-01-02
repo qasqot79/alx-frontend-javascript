@@ -1,5 +1,3 @@
-// 9-try.js
-
 export default function guardrail(mathFunction) {
   const queue = [];
 
