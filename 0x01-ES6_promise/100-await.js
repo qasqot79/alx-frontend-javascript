@@ -1,4 +1,3 @@
-// 100-await.js
 import { uploadPhoto, createUser } from './utils';
 
 async function asyncUploadUser() {

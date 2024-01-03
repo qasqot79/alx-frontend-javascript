@@ -30,4 +30,8 @@ export default function createIteratorObject(report) {
       };
     },
   };
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> 41fbabea2e05db6c93a8918f049d2c29fe69c127

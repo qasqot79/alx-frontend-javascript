@@ -1,13 +1,10 @@
-// 0-promise.js
-
-function getResponseFromAPI() {
+export default function getRespondFromAPI() {
+  /* eslint-disable */
   return new Promise((resolve, reject) => {
-    // Your asynchronous API call or any other async operation goes here
-    // For demonstration purposes, let's resolve the promise after a short timeout
-    setTimeout(() => {
-      resolve('API response data');
-    }, 1000);
+      if (true) {
+	resolve();
+      } else {
+	reject();
+      }
   });
 }
-
-export default getResponseFromAPI;
