@@ -1,16 +1,14 @@
-// 101-main.js
+export default function iterateThroughObject(reportWithIterator) {
+  let result = '';
 
-import createEmployeesObject from "./11-createEmployeesObject.js";
-import createReportObject from './12-createReportObject.js';
-import createIteratorObject from './100-createIteratorObject.js';
-import iterateThroughObject from './101-iterateThroughObject.js';
+  for (const employee of reportWithIterator) {
+    result += employee + ' | ';
+  }
 
-const employees = {
-  ...createEmployeesObject('engineering', ['Bob', 'Jane']),
-  ...createEmployeesObject('marketing', ['Sylvie'])
-};
+  // Remove the trailing ' | ' if there are employees
+  if (result.length > 0) {
+    result = result.slice(0, -3);
+  }
 
-const report = createReportObject(employees);
-const reportWithIterator = createIteratorObject(report);
-
-console.log(iterateThroughObject(reportWithIterator));
+  return result;
+}
