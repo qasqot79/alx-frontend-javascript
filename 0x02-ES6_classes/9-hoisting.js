@@ -34,5 +34,3 @@ export class StudentHolberton {
 }
 
 export const listOfStudents = [];
-
-   
