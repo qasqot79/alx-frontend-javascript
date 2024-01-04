@@ -1,36 +1,35 @@
-import Currency from './3-currency';
+// 4-pricing.js
+import Currency from './3-currency.js';
 
-export default class Pricing {
-  /* eslint-disable */
+class Pricing {
   constructor(amount, currency) {
-    this._currency = currency;
     this._amount = amount;
-  }
-
-  // getter 
-  get currency() {
-    return this._currency;
+    this._currency = currency;
   }
 
   get amount() {
     return this._amount;
   }
 
-  // setter
-  set currency(Currency) {
-    this._currency = Currency;
+  set amount(newAmount) {
+    this._amount = newAmount;
   }
 
-  set amount(Amount) {
-    this._amount = Amount;
+  get currency() {
+    return this._currency;
+  }
+
+  set currency(newCurrency) {
+    this._currency = newCurrency;
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this._currency.displayFullCurrency()}`; 
+    return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
-  // static that calculates the amount multiplied by the conversion rate
   static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
   }
 }
+
+export default Pricing;
