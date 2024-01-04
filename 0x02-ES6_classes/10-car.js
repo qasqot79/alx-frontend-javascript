@@ -1,19 +1,18 @@
-const _brand = Symbol('brand');
-const _motor = Symbol('motor');
-const _color = Symbol('color');
-
-class Car {
+export default class Car {
+  /* eslint-disable */
   constructor(brand, motor, color) {
-    this[_brand] = brand;
-    this[_motor] = motor;
-    this[_color] = color;
+    this._brand = brand;
+    this._motor = motor;
+    this._color = color;
   }
 
+  // method 
   cloneCar() {
-    const CarClass = this.constructor;
-    const clonedCar = new CarClass();
-    return Object.assign(clonedCar, this);
+    const Species = this.constructor[Symbol.species];
+    return new Species();
+  }
+
+  static get [Symbol.species]() {
+    return this;
   }
 }
-
-export default Car;
