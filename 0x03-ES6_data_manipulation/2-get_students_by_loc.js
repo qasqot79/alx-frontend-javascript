@@ -1,5 +1,3 @@
-function getStudentsByLocation(students, city) {
-  return students.filter((student) => student.location === city);
+export default function getStudentsByLocation(students, city) {
+  return students.filter((obj) => obj.location === city);
 }
-
-export default getStudentsByLocation;
