@@ -1,10 +1,16 @@
-export default function createInt8TypedArray(length, position, value) {
-  const arr = new ArrayBuffer(length);
-  const val = new DataView(arr);
+function updateStudentGradeByCity(studentArray, city, newGrades) {
+  return studentArray
+    .filter(student => student.location === city)
+    .map(student => {
+      const matchedGrade = newGrades.find(grade => grade.studentId === student.id);
 
-  try {
-    val.setInt8(position, value);
-  } catch (e) {
-    throw Error('Position outside range');
-  }
-  return val;
+      return {
+        id: student.id,
+        firstName: student.firstName,
+        location: student.location,
+        grade: matchedGrade ? matchedGrade.grade : 'N/A',
+      };
+    });
+}
+
+export default updateStudentGradeByCity;
